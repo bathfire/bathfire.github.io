@@ -14,13 +14,13 @@
 
   <script>
     async function getWeather(){
-      const city = document.getElementByld('city').value;
+      const city = document.getElementById('city').value;
       const response = await fetch('http://127.0.0.1:8000/weather?city=${city}');
       const data = await response.json();
       if(data.error){
-        document.getElementByld('result').innerText = "Error:" + data.error;
+        document.getElementById('result').innerText = "Error:" + data.error;
       }else{
-        document.getElementByld('result').innerText = 
+        document.getElementById('result').innerText = 
           'City:  ${data.city}\nTemperature:   ${data.temperature}°C\nWeather:${data.description}';
       }
     }
