@@ -7,7 +7,24 @@
   <title>我的个人网站</title>
 </head>
 <body>
-  <h1>欢迎来到我的个人网站！</h1>
-  <p>这是我的第一个网页。</p>
+  <h1>Check Weather</h1>
+  <input type="text" id="city" placeholder="Enter city">
+  <button onclick="getWeather()">Get Weather</button>
+  <p id="result"></p>
+
+  <script>
+    async function getWeather(){
+      const cit = document.getElementByld('city').value;
+      const response = await fetch('http://127.0.0.1:8000/weather?city=${city}');
+      const data = await response.json();
+      if(data.error){
+        document.getElementByld('result').innerText = "Error:" + data.error;
+      }else{
+        document.getElementByld('result').innerText = 
+          'City:  ${data.city}\nTemperature:   ${data.temperature}°C\nWeather:${data.description}';
+      }
+    }
+  </script>
+  
 </body>
 </html>
