@@ -14,7 +14,7 @@
 
   <script>
     async function getWeather(){
-      const cit = document.getElementByld('city').value;
+      const city = document.getElementByld('city').value;
       const response = await fetch('http://127.0.0.1:8000/weather?city=${city}');
       const data = await response.json();
       if(data.error){
